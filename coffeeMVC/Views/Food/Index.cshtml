@@ -1,0 +1,57 @@
+﻿<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Add styles for the images */
+        .item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Add styles for the container */
+        #mnsry_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 960px;
+        }
+
+        /* Add styles for the items */
+        .item {
+            width: 250px;
+            height: 300px;
+            margin: 20px;
+            padding: 10px;
+
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+            .item h2 {
+                margin-top: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div id="mnsry_container">
+        @foreach (var food in Model)
+        {
+            <article class="item group2">
+                <img src="@food.ImageUrl" />
+                <h2>@food.Name</h2>
+
+            </article>
+
+            <a href="/Product/@food.Name" class="page-scroll btn btn-xl"> order @food.Name"</a>
+
+        }
+    </div>
+
+   
+</body>

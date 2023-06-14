@@ -1,0 +1,76 @@
+﻿@model List<Product>
+
+<div id="mnsry_container">
+    @foreach (var product in Model)
+    {
+            <article class="item group2">
+                <div class="product-box">
+                    <h2>@product.Name</h2>
+
+                    <div class="product-details">
+                        <p>@product.Description</p>
+                        <p>Price: $@product.Price</p>
+                        <div class="add-to-cart">
+                            <input type="checkbox" name="productIds[]" value="@product.Id">
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                        <form method="post" asp-action="AddToCart">
+        <input type="hidden" name="productId" value="@product.Id" />
+        <button type="submit">Add to Cart</button>
+    </form>
+                    </div>
+                </div>
+            </article>
+    }
+</div>
+<style>
+    .product-box {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    .product-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .product-details p {
+        margin-bottom: 5px;
+    }
+
+    .add-to-cart {
+        display: flex;
+        align-items: center;
+    }
+
+        .add-to-cart input[type=checkbox] {
+            margin-right: 10px;
+        }
+
+    .btn-add-to-cart {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .btn-add-to-cart:hover {
+            background-color: #f44336;
+            opacity: 0.8;
+        }
+
+body {
+    font-family: Arial, "Hiragino Kaku Gothic Pro W3", Meiryo, sans-serif;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+</style>
